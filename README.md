@@ -51,6 +51,50 @@ Customer and user records are currently stored using static PHP arrays as tempor
 7. Open the application in your browser:
 
    http://localhost:8080
+   
+## Database Setup
+
+This version of the application uses a MySQL database instead of static PHP arrays.
+
+### Database Name
+
+`pos_system`
+
+### Tables
+
+The database contains the following tables:
+
+- `customers`
+- `users`
+
+### Importing the Database
+
+1. Start Apache and MySQL using XAMPP.
+2. Open phpMyAdmin.
+3. Create a database named `pos_system`.
+4. Select the `pos_system` database.
+5. Open the Import tab.
+6. Import the database file located at:
+
+   `database/pos_system.sql`
+
+7. Configure the database connection in the `.env` file:
+
+   database.default.hostname = localhost  
+   database.default.database = pos_system  
+   database.default.username = root  
+   database.default.password =  
+   database.default.DBDriver = MySQLi  
+   database.default.port = 3306
+
+## Database Models
+
+The application uses CodeIgniter Models to retrieve records from the database:
+
+- `CustomerModel` - retrieves records from the `customers` table
+- `UserModel` - retrieves records from the `users` table
+
+Records are retrieved using CodeIgniter's `findAll()` method rather than raw SQL.
 
 ## Routes
 
