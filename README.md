@@ -108,3 +108,33 @@ Records are retrieved using CodeIgniter's `findAll()` method rather than raw SQL
 Course: IT0049 - Web System Technologies  
 Activity: Technical Formative Assessment 1  
 Framework: CodeIgniter 4
+
+## TFA3 Features
+
+The application was extended with create and edit functionality for customer and user accounts.
+
+### Customer Accounts
+
+- Add new customer accounts
+- Validate required full name and valid email address
+- Edit existing customer information
+- Preserve entered values when validation fails
+
+### User Accounts
+
+- Add new user accounts
+- Validate required and unique usernames
+- Edit existing user information
+- Upload a profile picture when editing a user
+- Accept JPG and PNG images up to 2 MB
+- Prepare uploaded avatars for display
+- Store only the avatar filename in the database
+- Display a placeholder when no avatar is available
+
+### Avatar Storage
+
+Prepared profile pictures are stored in:
+
+`public/uploads/avatars/`
+
+The `users.avatar` database field stores only the image filename.
