@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2026 at 07:35 PM
+-- Generation Time: Oct 02, 2026 at 02:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,8 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 (2, 'User Test 2', 'usertest2@email.com', '09222222222', '2026-09-24 01:16:37'),
 (3, 'User Test 3', 'usertest3@email.com', '09333333333', '2026-09-24 01:16:37'),
 (4, 'User Test 4', 'usertest4@email.com', '09444444444', '2026-09-24 01:16:37'),
-(5, 'User Test 5', 'usertest5@email.com', '09555555555', '2026-09-24 01:16:37');
+(5, 'User Test 5', 'usertest5@email.com', '09555555555', '2026-09-24 01:16:37'),
+(6, 'wohoo', 'wohoo@email.com', '1234567890', '2026-10-02 11:13:10');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -63,12 +65,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`) VALUES
-(1, 'usertest1', 'User Test 1', '2026-09-24 01:16:37'),
-(2, 'usertest2', 'User Test 2', '2026-09-24 01:16:37'),
-(3, 'usertest3', 'User Test 3', '2026-09-24 01:16:37'),
-(4, 'usertest4', 'User Test 4', '2026-09-24 01:16:37'),
-(5, 'usertest5', 'User Test 5', '2026-09-24 01:16:37');
+INSERT INTO `users` (`id`, `username`, `full_name`, `avatar`, `created_at`) VALUES
+(1, 'usertest1', 'User Test 1', NULL, '2026-09-24 01:16:37'),
+(2, 'usertest2', 'User Test 2', NULL, '2026-09-24 01:16:37'),
+(3, 'usertest3', 'User Test 3', NULL, '2026-09-24 01:16:37'),
+(4, 'usertest4', 'User Test 4', NULL, '2026-09-24 01:16:37'),
+(5, 'usertest5', 'User Test 5', NULL, '2026-09-24 01:16:37');
 
 --
 -- Indexes for dumped tables
@@ -95,7 +97,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

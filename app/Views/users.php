@@ -20,17 +20,27 @@
 
     <div class="container">
 
-        <h1>User Accounts</h1>
-        <p class="subtitle">View system user account information.</p>
+       <div class="page-header">
+			<div>
+				<h1>User Accounts</h1>
+				<p class="subtitle">View system user account information.</p>
+			</div>
+
+			<a href="/users/new" class="btn-primary">
+				+ New User
+			</a>
+		</div>
 
         <div class="card">
 
             <table>
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Full Name</th>
-                        <th>Created At</th>
+						<th>Avatar</th>
+						<th>Username</th>
+						<th>Full Name</th>
+						<th>Created At</th>
+						<th>Action</th>
                     </tr>
                 </thead>
 
@@ -39,9 +49,39 @@
                     <?php foreach ($users as $user): ?>
 
                         <tr>
-                            <td><?= esc($user['username']) ?></td>
-                            <td><?= esc($user['full_name']) ?></td>
-                            <td><?= esc($user['created_at']) ?></td>
+							<td>
+								<?php if (! empty($user['avatar'])): ?>
+
+									<img
+										src="/uploads/avatars/<?= esc($user['avatar']) ?>"
+										alt="Avatar"
+										class="table-avatar"
+									>
+
+								<?php else: ?>
+
+									<div class="table-avatar-placeholder">
+										—
+									</div>
+
+								<?php endif; ?>
+							</td>
+
+							<td><?= esc($user['username']) ?></td>
+
+							<td><?= esc($user['full_name']) ?></td>
+
+							<td><?= esc($user['created_at']) ?></td>
+
+							<td>
+								<a
+									href="/users/edit/<?= $user['id'] ?>"
+									class="btn-edit"
+								>
+									Edit
+								</a>
+							</td>
+
                         </tr>
 
                     <?php endforeach; ?>
