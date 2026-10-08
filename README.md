@@ -138,3 +138,72 @@ Prepared profile pictures are stored in:
 `public/uploads/avatars/`
 
 The `users.avatar` database field stores only the image filename.
+
+
+## TFA4 - Sessions and Authentication
+
+The POS System has been extended with user authentication and session management using CodeIgniter 4.
+
+### Features
+
+- Login using username and password
+- Secure password hashing using `password_hash()`
+- Password verification using `password_verify()`
+- Session creation after successful login
+- Authentication Filter for protected pages
+- Restricted access to Customer and User Accounts
+- Logout functionality that destroys the session
+- Redirect unauthenticated users to the Login page
+
+### Authentication Routes
+
+| Route | Description |
+|---|---|
+| `/login` | User login page |
+| `/customers` | Protected customer accounts |
+| `/users` | Protected user accounts |
+| `/logout` | Logout action (POST) |
+
+### Database Setup
+
+1. Start Apache and MySQL using XAMPP.
+2. Open phpMyAdmin.
+3. Create a database named `pos_system`.
+4. Import `database/pos_system.sql`.
+5. Configure the database connection in `.env`.
+
+The `users` table includes a `password` column for storing hashed passwords.
+
+### Creating an Initial User
+
+For security reasons, the GitHub database export does not include existing user account records or password hashes.
+
+To create a login account:
+
+1. Open Command Prompt in the project directory.
+2. Run:
+
+   php spark user:create-demo
+
+3. Enter a username, full name, and password when prompted.
+4. Use the newly created credentials to log in.
+
+Passwords are hashed using PHP's `password_hash()` function before being stored in MySQL.
+
+### Running the Application
+
+Start the CodeIgniter development server:
+
+    php spark serve
+
+Open:
+
+    http://localhost:8080/login
+
+Log in using the account created during setup.
+
+### Access Control
+
+Customer and User Accounts pages, including their create and edit forms, are protected using a CodeIgniter Authentication Filter.
+
+Unauthenticated visitors are redirected to the Login page.

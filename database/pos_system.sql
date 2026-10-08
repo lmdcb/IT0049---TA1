@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2026 at 02:35 PM
+-- Generation Time: Oct 08, 2026 at 06:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,6 +56,7 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `full_name` varchar(100) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
@@ -65,12 +66,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `avatar`, `created_at`) VALUES
-(1, 'usertest1', 'User Test 1', NULL, '2026-09-24 01:16:37'),
-(2, 'usertest2', 'User Test 2', NULL, '2026-09-24 01:16:37'),
-(3, 'usertest3', 'User Test 3', NULL, '2026-09-24 01:16:37'),
-(4, 'usertest4', 'User Test 4', NULL, '2026-09-24 01:16:37'),
-(5, 'usertest5', 'User Test 5', NULL, '2026-09-24 01:16:37');
+
 
 --
 -- Indexes for dumped tables

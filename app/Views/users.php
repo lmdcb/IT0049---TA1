@@ -9,14 +9,24 @@
 </head>
 <body>
 
-    <nav>
-        <div class="brand">POS System</div>
+    
+	<nav>
+		<div class="brand">POS System</div>
 
-        <a href="<?= base_url('/') ?>">Home</a>
-        <a href="<?= base_url('about') ?>">About</a>
-        <a href="<?= base_url('customers') ?>">Customer Accounts</a>
-        <a href="<?= base_url('users') ?>">User Accounts</a>
-    </nav>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+		<a href="/customers">Customer Accounts</a>
+		<a href="/users">User Accounts</a>
+
+		<form action="/logout" method="post" class="logout-form">
+			<?= csrf_field() ?>
+
+			<button type="submit" class="logout-btn">
+				Logout
+			</button>
+		</form>
+	</nav>
+
 
     <div class="container">
 
